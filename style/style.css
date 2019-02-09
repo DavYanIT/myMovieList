@@ -1,0 +1,149 @@
+.container {
+    width: 720px;
+    padding-top: 12px;
+    /* flex-wrap: nowrap; */
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.is-watched>a,
+.is-watched summary {
+    opacity: 0.5;
+}
+
+.error {
+    color: #d9534f;
+    position: absolute;
+    font-size: 12px;
+}
+
+summary {
+    cursor: pointer;
+    outline: none;
+}
+
+select.form-control {
+    width: auto;
+}
+
+select option[disabled] {
+    display: none;
+}
+
+div.filter > select.inline-element {
+    display: inline;
+}
+
+.filter {
+    display: inline-block;
+    margin-right: 36px;
+}
+
+.center {
+    text-align: center;
+    padding-right: 15px;
+}
+
+/* styles for radio buttons from https://codepen.io/JiveDig/pen/jbdJXR?editors=0100 */
+/* which are not used in this project right now */
+
+/* custom switch checkboxes from https://codepen.io/DaveTheGuru/pen/GExWmR?editors=1100 */
+/* which are not used in this project right now */
+
+/* custom checkboxes and radios from https://codepen.io/andrewvink/pen/oLqpZd?editors=1100 */
+
+/* Hide base elements */
+[type="radio"],
+[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+}
+
+/* Position the <label> */
+[type="radio"]+label,
+[type="checkbox"]+label {
+    position: relative;
+    display: inline-block;
+    height: 17px;
+    padding: 0 30px;
+    cursor: pointer;
+}
+
+[type="radio"]+label {
+    display: inline-table;
+}
+
+/* SHARED STYLES - Radio & Checkbox - Unchecked */
+[type="radio"]+label:before,
+[type="checkbox"]+label:before {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    left: 0;
+    top: 65%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid #333;
+}
+
+[type="radio"]+label:before {
+    top: 50%;
+}
+
+/* RADIO - Unchecked */
+[type="radio"]:checked+label:before,
+[type="radio"]:not(:checked)+label:before {
+    border-radius: 50%;
+}
+
+/* RADIO - Checked */
+[type="radio"]:checked+label:after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    transform: translateY(-50%);
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #333;
+}
+
+/* CHECKBOX - Unchecked */
+/* [type="checkbox"]:not(:checked)+label:before {
+    Add styles if needed
+} */
+
+/* CHECKBOX - Checked ( CSS Tick ) */
+[type="checkbox"]:checked+label:after {
+    position: absolute;
+    box-sizing: border-box;
+    content: "";
+    left: 7px;
+    top: 4px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    /* Short Arm */
+    width: 5px;
+    border-bottom: 3px solid #333;
+    /* Long Arm */
+    height: 11px;
+    border-right: 3px solid #333;
+}
+
+/* SHARED STYLES - Radio & Checkbox - Disabled */
+[type="radio"]:disabled+label:before,
+[type="checkbox"]:disabled+label:before {
+    border-color: #bbb;
+    background-color: #ddd;
+}
+
+[type="radio"]:disabled+label,
+[type="checkbox"]:disabled+label {
+    color: #999;
+}

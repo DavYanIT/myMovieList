@@ -1,0 +1,9 @@
+/node_modules
+/src/config/myConfig.js
+bundle.js
+npm-debug.log
+.DS_Store
+
+# IntelliJ
+*.iml
+/.idea
