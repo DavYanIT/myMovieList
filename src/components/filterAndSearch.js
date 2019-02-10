@@ -1,27 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { renderWithStatus, renderOfKind, renderGroup, setSearchField, setSearchTerm } from '../actions/index'
-import { CustomSelect, CustomRadios, groupFields, kindFields, statusFields } from '../static'
+import { action } from '../actions/index'
+import { CustomSelect, CustomRadios, groupFields, kindFields, statusFields, actionTypes } from '../static'
+
+const { RENDER_GROUP, RENDER_OF_KIND, RENDER_WITH_STATUS, SET_SEARCH_FIELD, SET_SEARCH_TERM } = actionTypes
 
 const FilterAndSearch = ({
-  renderGroup,
-  renderOfKind,
-  renderWithStatus,
-  setSearchField,
-  setSearchTerm,
+  action,
   filterProps: { group, kind, status },
   searchProps: { term, field }
 }) => (
   <div>
-    <CustomSelect func={renderGroup} defVal={group} label="Group" fields={groupFields} />
-    <CustomSelect func={renderOfKind} defVal={kind} label="Kind" fields={kindFields} />
-    <CustomSelect func={renderWithStatus} defVal={status} label="Status" fields={statusFields} />
-    <CustomRadios values={['name', 'genre']} func={setSearchField} checkedField={field} />
+    <CustomSelect func={action} actionType={RENDER_GROUP} defVal={group} label="Group" fields={groupFields} />
+    <CustomSelect func={action} actionType={RENDER_OF_KIND} defVal={kind} label="Kind" fields={kindFields} />
+    <CustomSelect func={action} actionType={RENDER_WITH_STATUS} defVal={status} label="Status" fields={statusFields} />
+    <CustomRadios values={['name', 'genre']} func={action} actionType={SET_SEARCH_FIELD} checkedField={field} />
     <input
       className="form-control"
       value={term}
       placeholder={`Search by ${field.toLowerCase()}`}
-      onChange={(e) => setSearchTerm(e.target.value)} />
+      onChange={(e) => action(SET_SEARCH_TERM, e.target.value)} />
   </div>
 )
 
@@ -30,11 +28,5 @@ export default connect(
     filterProps: state.filterProps,
     searchProps: state.searchProps
   }),
-  {
-    renderWithStatus,
-    renderOfKind,
-    renderGroup,
-    setSearchField,
-    setSearchTerm
-  }
+  { action }
 )(FilterAndSearch)

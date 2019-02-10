@@ -1,16 +1,15 @@
-import {
-  SET_SEARCH_FIELD,
-  SET_SEARCH_TERM
-} from '../actions/index';
+import { actionTypes } from '../static'
+
+const { SET_SEARCH_FIELD, SET_SEARCH_TERM } = actionTypes
 
 const INITIAL_STATE = {field: 'name', term: ''}
 
-export default (state = INITIAL_STATE, action) => {
-  switch (action.type) {
+export default (state = INITIAL_STATE, {type, payload}) => {
+  switch (type) {
     case SET_SEARCH_FIELD:
-      return { ...state, field: action.payload }
+      return { ...state, field: payload }
     case SET_SEARCH_TERM:
-      return { ...state, term: action.payload }
+      return { ...state, term: payload }
   }
   return state;
 }

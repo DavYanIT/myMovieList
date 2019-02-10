@@ -10,6 +10,8 @@ import beutify from './functions/beutify'
 import filteredAndFound from './functions/filteredAndFound'
 import validate from './functions/formValidation'
 
+import actionTypes from './actionTypes'
+
 import { groupFields, kindFields, statusFields } from './filtersValues'
 
 export {
@@ -25,5 +27,6 @@ export {
     validate,
     groupFields,
     kindFields,
-    statusFields
+    statusFields,
+    actionTypes
 }
