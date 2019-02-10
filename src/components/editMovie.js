@@ -3,7 +3,7 @@ import { reduxForm } from 'redux-form'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 
-import { updateMovie } from '../actions/index'
+import { updateMovie } from '../actions'
 import { FormTemplate, validate } from '../static'
 
 class EditMovie extends Component {

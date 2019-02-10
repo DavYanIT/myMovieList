@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { action } from '../actions/index'
+import { action } from '../actions'
 import { CustomSelect, CustomRadios, groupFields, kindFields, statusFields, actionTypes } from '../static'
 
 const { RENDER_GROUP, RENDER_OF_KIND, RENDER_WITH_STATUS, SET_SEARCH_FIELD, SET_SEARCH_TERM } = actionTypes

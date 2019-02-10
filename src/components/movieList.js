@@ -1,20 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { deleteMovie, updateMovie } from '../actions/index'
+import { deleteMovie, updateMovie } from '../actions'
 
 export default ({movies}) => movies.map(({status, genres, description, name, id, links}) =>
   <li className={`list-group-item ${status=='watched' ? 'is-watched' : ''}`} key={id}>
     <details>
       <summary>
         <strong>{name}</strong>
-        {links ?
+        {links && links.length ?
           <a
           className="pull-xs-right"
           href={links[0].linkAddress}
           target="_blank">
             {links[0].linkName}
-          </a> :
-          undefined}
+          </a> : '' }
       </summary>
       <div className='flex-container'>
         <div>
@@ -22,15 +21,13 @@ export default ({movies}) => movies.map(({status, genres, description, name, id,
               <div key={linkAddress}>
                 <a href={linkAddress} target="_blank">{linkName}</a>
               </div>
-            ) : undefined}
-          {genres ?
+            ) : ''}
+          {genres && genres.length ?
             <p>
               genres: {genres.map(genre => (
                 genre==genres[genres.length-1] ? genre : genre + ', ')
-                )}
-            </p> :
-            undefined
-          }
+              )}
+            </p> : ''}
           {description?<p>{description}</p>:''}
           <span>
             <input

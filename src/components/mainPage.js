@@ -15,12 +15,9 @@ const MainPage = (props) =>
     </div>
     <ul className="list-group">
       {/* show `Loading...` till fetching movies */}
-      {props.movies ?
-        <MovieList movies={
-          filteredAndFound(props.movies, props.filterProps, props.searchProps)
-        } /> :
-        <h4 style={{color: 'grey'}}>Loading...</h4>
-      }
+      {props.movies && <MovieList movies={
+        filteredAndFound(props.movies, props.filterProps, props.searchProps)
+      }/>}
     </ul>
   </Fragment>
 
